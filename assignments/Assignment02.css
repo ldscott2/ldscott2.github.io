@@ -54,7 +54,7 @@ img[alt="bird icon"] {
 }
 
 nav {
-  position: sticky;
+  overflow: hidden;
   background-color: limegreen;
 }
 
