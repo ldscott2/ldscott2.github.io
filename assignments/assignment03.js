@@ -200,6 +200,8 @@ function add1(elem) {
     currentScore = Number.parseInt(currentScore);
     elem.children[2].innerHTML = currentScore + 1;
   }
+  elem.children[3].innerHTML =
+    elem.children[2].innerHTML - elem.children[1].innerHTML;
 }
 function subtract1(elem) {
   if (elem.children[2].innerHTML == "-") elem.children[2].innerHTML = "-1";
@@ -208,6 +210,8 @@ function subtract1(elem) {
     currentScore = Number.parseInt(currentScore);
     elem.children[2].innerHTML = currentScore - 1;
   }
+  elem.children[3].innerHTML =
+    elem.children[2].innerHTML - elem.children[1].innerHTML;
 }
 
 function clear(elem) {
@@ -215,13 +219,5 @@ function clear(elem) {
   else {
     elem.children[2].innerHTML = "-";
   }
+  elem.children[3].innerHTML = "-";
 }
-
-function calculateOver(elem){
-  if(elem.children[2].innerHTML == "-") elem.children[2].innerHTML = "=";
-  else{
-    elem.children[4].innerHTML = elem.children[1].innerHTML - elem.children[2].innerHTML;
-  }
-}
-
-
