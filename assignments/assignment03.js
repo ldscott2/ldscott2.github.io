@@ -18,6 +18,7 @@ elem[15] = document.getElementById("15");
 elem[16] = document.getElementById("16");
 elem[17] = document.getElementById("17");
 elem[18] = document.getElementById("18");
+elem[19] = document.getElementById("19");
 
 // display the number of children (all td elements)
 // console.log(elem.children.length);
@@ -202,6 +203,7 @@ function add1(elem) {
   }
   elem.children[3].innerHTML =
     elem.children[2].innerHTML - elem.children[1].innerHTML;
+  
 }
 function subtract1(elem) {
   if (elem.children[2].innerHTML == "-") elem.children[2].innerHTML = "-1";
@@ -221,3 +223,7 @@ function clear(elem) {
   }
   elem.children[3].innerHTML = "-";
 }
+
+
+
+elem[19].children[1].innerHTML = Number.parseInt(elem[1].children[1].innerHTML) + Number.parseInt(elem[2].children[1].innerHTML) + Number.parseInt(elem[3].children[1].innerHTML) + Number.parseInt(elem[4].children[1].innerHTML) + Number.parseInt(elem[5].children[1].innerHTML) + Number.parseInt(elem[6].children[1].innerHTML) + Number.parseInt(elem[7].children[1].innerHTML) + Number.parseInt(elem[8].children[1].innerHTML) + Number.parseInt(elem[9].children[1].innerHTML) + Number.parseInt(elem[10].children[1].innerHTML) + Number.parseInt(elem[11].children[1].innerHTML) + Number.parseInt(elem[12].children[1].innerHTML) + Number.parseInt(elem[13].children[1].innerHTML) + Number.parseInt(elem[14].children[1].innerHTML) + Number.parseInt(elem[15].children[1].innerHTML) + Number.parseInt(elem[16].children[1].innerHTML) + Number.parseInt(elem[17].children[1].innerHTML) + Number.parseInt(elem[18].children[1].innerHTML);
