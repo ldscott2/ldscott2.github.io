@@ -42,7 +42,7 @@ var chartData = {
   options: {
     title: {
       display: true,
-      text: "Apples and Oranges"
+      text: "COVID-19"
     },
     scales: {
       yAxes: [
