@@ -77,7 +77,7 @@ var loans = [
   let toMoney = (value) =>{
     return `\$${toComma(value.toFixed(2))}`;
   }
-  
+  //updates the loan array with new information and validates the information thats entered from the user
   function updateLoansArray() {
     let valid = true;
     let yearP = /^(19|20)\d{2}$/;
@@ -115,7 +115,7 @@ var loans = [
       for(i=0; i<5; i++){
         loans[i].loan_int_rate = rate;
       }
-
+        
       updateForm();
     }
   }
@@ -123,7 +123,6 @@ var loans = [
  let saveLocalStorage = () => {
    localStorage.setItem(`College Debt Estimator`, JSON.stringify(loans));
  }
-};
 
  let loadLocalStorage = () => {
   if(localStorage.getItem(`College Debt Estimator`) != null){
@@ -147,11 +146,11 @@ app.controller('CDECtrl', function($scope) {
     let pay = 12 * (total / ((((1+r)**(n*12))-1)/(r *(1+r)**(n*12))));
       12 * (total / (((1 + r) ** (n * 12) - 1) / (r * (1 + r) ** (n * 12))));
     for (let i = 0; i < 10; i++) {
-      total -= pay //6500
-      let interest = total * (iRate); 
+      total -= pay
+      let int = total * (iRate); 
       $scope.payments[i]={
         "year":loans[4].loan_year + i + 1,
-        "payment": toMoney(pay), //toMoney(6500),
+        "payment": toMoney(pay),
         "amt": toMoney(int),
         "ye": toMoney(total += int)
       }
