@@ -118,7 +118,7 @@ var loans = [
         
       updateForm();
     }
-  }
+  
 
  let saveLocalStorage = () => {
    localStorage.setItem(`College Debt Estimator`, JSON.stringify(loans));
