@@ -49,9 +49,9 @@ var loans = [
     
     // set focus to first year: messes up codepen
     $("#loan_year01").focus();
+    
+}); // End of the Jquery load document function
 
-  }); // End of the Jquery load document function
-  
 // Updates the form when user input is made
   let updateForm = () => {
     loanPlusInterest = 0;
@@ -100,6 +100,7 @@ var loans = [
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
     }
+  }
 
     if(valid){
       loans[0].loan_year = parseInt($("#loan_year01").val());
@@ -122,6 +123,7 @@ var loans = [
  let saveLocalStorage = () => {
    localStorage.setItem(`College Debt Estimator`, JSON.stringify(loans));
  }
+};
 
  let loadLocalStorage = () => {
   if(localStorage.getItem(`College Debt Estimator`) != null){
@@ -142,8 +144,8 @@ app.controller('CDECtrl', function($scope) {
     let r = iRate / 12;
     let n = 11;
     //loan payment formula
-    //https://www.thebalance.com/loan-payment-calculations-315564
     let pay = 12 * (total / ((((1+r)**(n*12))-1)/(r *(1+r)**(n*12))));
+      12 * (total / (((1 + r) ** (n * 12) - 1) / (r * (1 + r) ** (n * 12))));
     for (let i = 0; i < 10; i++) {
       total -= pay //6500
       let interest = total * (iRate); 
@@ -162,3 +164,4 @@ app.controller('CDECtrl', function($scope) {
     }
   }
 });
+    
