@@ -81,23 +81,23 @@ var loans = [
   //updates the loan array with new information and validates the information thats entered from the user
   function updateLoansArray() {
     let valid = true;
-    let yearP = /^(19|20)\d{2}$/;
-    let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;
-    let intP = /^(0|)+(.[0-9]{1,5})?$/;
+    let yearExpression = /^(19|20)\d{2}$/;
+    let amtExpression = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;
+    let intExpression = /^(0|)+(.[0-9]{1,5})?$/;
 
-    if(!yearP.test($(`#loan_year01`).val())){
+    if(!yearExpression.test($(`#loan_year01`).val())){
       valid = false;
       $(`#loan_year01`).css("background-color", "red");
     }
     
     for (i = 1; i < 6; i++) {
-      if(!amtP.test($(`#loan_amt0${i}`).val())){
+      if(!amtExpression.test($(`#loan_amt0${i}`).val())){
         valid = false;
         $(`#loan_amt0${i}`).css("background-color", "red");
       } 
     }
 
-    if(!intP.test($(`#loan_int01`).val())){
+    if(!intExpression.test($(`#loan_int01`).val())){
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
     }
@@ -141,14 +141,14 @@ app.controller('CDECtrl', function($scope) {
   $scope.populate = function () {
     updateForm();//updates the form
     let total = loanWithInterest;//sets the total variable to the loanWithInterest
-    let iRate = loans[0].loan_int_rate; //sets the iRate to the first element loan interest rate
-    let r = iRate / 12;//divides the loan interest rate by 12 months
+    let intRate = loans[0].loan_int_rate; //sets the iRate to the first element loan interest rate
+    let r = intRate / 12;//divides the loan interest rate by 12 months
     let n = 11;
     //loan payment formula
     let pay = 12 * (total / ((((1+r)**(n*12))-1)/(r *(1+r)**(n*12))));
     for (let i = 0; i < 10; i++) {
       total -= pay //runs through the for loop and subtracts the payments from the total
-      let int = total * (iRate);
+      let int = total * (intRate);
       $scope.payments[i]={
         "year":loans[4].loan_year + i + 1,
         "payment": toMoney(pay),
