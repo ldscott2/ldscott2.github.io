@@ -151,7 +151,7 @@ app.controller('CDECtrl', function($scope) {
       let int = total * (iRate);
       $scope.payments[i]={
         "year":loans[4].loan_year + i + 1,
-        "payment": toMoney(pay), ,
+        "payment": toMoney(pay),
         "amt": toMoney(int),
         "ye": toMoney(total += int)
       }
