@@ -8,7 +8,7 @@ var loans = [
     { loan_year: 2024, loan_amount: 10000.00, loan_int_rate: 0.0453 }
   ]; 
   let loanPlusInterest = 0;
-  let interest = 0;
+  let int = 0;
   
   // --- Jquery Load Document  ---
   
